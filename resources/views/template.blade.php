@@ -44,7 +44,7 @@
             <!-- Logo -->
             <h1 id="logo"><a href="{{ url('') }}">Wedding Gift Donations</a></h1>
 
-            <p>A registry for wedding gifts of donations to nonprofits</p>
+            <p>A registry for wedding gifts of donations to nonprofits instead of stuff</p>
 
         </div>
     </div>

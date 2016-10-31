@@ -18,15 +18,7 @@
         {{ csrf_field() }}
 
         <div class="form-group">
-            <label for="task" class="col-sm-3 control-label">Wedding Hashtag *</label>
-
-            <div class="col-sm-6">
-                <input type="text" name="name" id="task" class="form-control">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="task" class="col-sm-3 control-label">First Name</label>
+            <label for="task" class="col-sm-3 control-label">Wedding Hashtag</label>
 
             <div class="col-sm-6">
                 <input type="text" name="name" id="task" class="form-control">
@@ -40,60 +32,16 @@
                 <input type="text" name="name" id="task" class="form-control">
             </div>
         </div>
-
-        <div class="form-group">
-            <label for="task" class="col-sm-3 control-label">First Name</label>
-
-            <div class="col-sm-6">
-                <input type="text" name="name" id="task" class="form-control">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="task" class="col-sm-3 control-label">Last Name</label>
-
-            <div class="col-sm-6">
-                <input type="text" name="name" id="task" class="form-control">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="task" class="col-sm-3 control-label">Wedding Date</label>
-
-            <div class="col-sm-6">
-                <input type="text" name="name" id="task" class="form-control">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="task" class="col-sm-3 control-label">Account User ID (email address)</label>
-
-            <div class="col-sm-6">
-                <input type="text" name="name" id="task" class="form-control">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="task" class="col-sm-3 control-label">Password</label>
-
-            <div class="col-sm-6">
-                <input type="text" name="name" id="task" class="form-control">
-            </div>
-        </div>
-
-
+        
         <!-- Add Task Button -->
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-6">
-                <button type="submit" class="btn btn-default">
-                    <i class="fa fa-plus"></i> Create!
+                <button type="submit" class="btn button btn-default">
+                    <i class="fa"></i> Search
             </div>
         </div>
 
     </form>
 
-    <p>
-        * = Required field.  Password has to be between 6 and 20 characters.
-    </p>
 
 @stop

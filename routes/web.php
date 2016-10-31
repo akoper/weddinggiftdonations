@@ -15,11 +15,11 @@ Route::get('/', function () {
     return view('index')->withTitle('Welcome!');
 });
 
-/*route::get('users/create', function () {
-    return view('users.create');
-});*/
+Route::get('user/search','UserController@search');
 
-Route::get ( 'users/search', 'UserController@search' );
+Route::group(['middleware' => ['web']], function() {
+    Route::resource('user','UserController');
+});
 
 Route::group(['middleware' => ['web']], function() {
     Route::resource('donation','DonationController');
@@ -29,6 +29,3 @@ Route::group(['middleware' => ['web']], function() {
     Route::resource('nonprofit','NonprofitController');
 });
 
-Route::group(['middleware' => ['web']], function() {
-    Route::resource('users','UserController');
-});
