@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use Illuminate\Support\Facades\Auth;
 use Validator;
 
 class UserController extends Controller
@@ -18,7 +19,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+
+        return view('users.show')->with('user', $user)->withTitle('Couple');
     }
 
     /**
@@ -93,9 +96,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        $user = User::find($id);
+        $user = Auth::user();
 
         return view('users.show')->with('user', $user)->withTitle('Couple');
     }

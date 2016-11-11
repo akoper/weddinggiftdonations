@@ -2488,6 +2488,27 @@
 
 	}
 
+
+/*****************   Andrew Koper's customer CSS  **********************/
+
 .padTop25 {
 	padding-top: 25px;
+}
+
+.marginTop11 {
+	margin-top: 11px;
+}
+
+.noBorderBottom {
+	border-bottom: none;
+}
+
+/*override bootstrap */
+.navbar {
+	margin-bottom:0 !important;
+}
+
+.navbar-default {
+	background-color: #ffffff !important;
+	border:0 !important;
 }
