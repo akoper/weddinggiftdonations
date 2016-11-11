@@ -38,11 +38,11 @@
     </p>
 
     <p>
-        <a href="{{ url($user->id . '/edit') }}">Edit your couple's information</a>
+        <a href="{{ url('user/' . $user->id . '/edit') }}">Edit your couple's information</a>
     </p>
 
     <p>
-        <a href="{{ url($user->id . '/destroy') }}">Delete your couple's account</a>
+        <a href="{{ url('user/' . $user->id . '/delete') }}">Delete your couple's account</a>
     </p>
 
 @endsection

@@ -26,7 +26,7 @@ class RegisterController extends Controller
      * Where to redirect users after login / registration.
      *
      * @var string
-     */
+     */ 
     protected $redirectTo = '/home';
 
     /**
@@ -48,10 +48,12 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'oneLName' => 'required|max:255',
+            'twoLName' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
+
     }
 
     /**
@@ -62,10 +64,27 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        //dd($data);
+
         return User::create([
-            'name' => $data['name'],
+            'oneFName' => $data['oneFName'],
+            'oneLName' => $data['oneLName'],
+            'twoFName' => $data['twoFName'],
+            'twoLName' => $data['twoLName'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
+        //dd($data);
+    }
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        return view('auth.register')->withTitle('Create Couple');
     }
 }

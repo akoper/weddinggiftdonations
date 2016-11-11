@@ -25,7 +25,7 @@ class DonationController extends Controller
      */
     public function create()
     {
-        return view('donations.create')->withTitle('Donation/Gift');
+        return view('donations.create')->withTitle('Create Donation/Gift');
     }
 
     /**

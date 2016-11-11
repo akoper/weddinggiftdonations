@@ -25,7 +25,7 @@ class NonprofitController extends Controller
      */
     public function create()
     {
-        return view('nonprofits.create')->withTitle('Nonprofit');
+        return view('nonprofits.create')->withTitle('Create Nonprofit');
     }
 
     /**

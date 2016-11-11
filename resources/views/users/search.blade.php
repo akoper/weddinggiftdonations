@@ -13,6 +13,14 @@
         <div class="alert alert-danger">{!! HTML::ul($errors->all()) !!}</div>
     @endif
 
+    <form class="typeahead" role="search">
+        <div class="form-group">
+            <input type="search" name="q" class="form-control" placeholder="Search" autocomplete="off">
+        </div>
+    </form>
+
+    <hr style="margin-top: 100px;">
+
     <form method="POST" action="users" class="form-horizontal">
 
         {{ csrf_field() }}

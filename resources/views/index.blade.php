@@ -13,7 +13,7 @@
             </ul>
 
             <ul class="actions">
-                <li><a href="{{ url('user/create') }}" class="button icon">Couples getting married: create a donation registry</a></li>
+                <li><a href="{{ url('register') }}" class="button icon">Couples getting married: create a donation registry</a></li>
             </ul>
 
     </div>

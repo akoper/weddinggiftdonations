@@ -62,6 +62,9 @@ class UserController extends Controller
 
         $validator = Validator::make($request->all(), [
             'oneLName' => 'required|max:255',
+            'twoLName' => 'required|max:255',
+            'email' => 'required|max:255',
+            'password' => 'required|max:255'
         ]);
 
         if ($validator->fails()) {
@@ -82,7 +85,6 @@ class UserController extends Controller
         $id = $user->id;
 
         return redirect('user/' . $id);
-
     }
 
     /**
@@ -108,7 +110,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        return View::make('user.edit')->with('user', $user)->withTitle('Edit Couple');
+        return view('users.edit')->with('user', $user)->withTitle('Edit Couple');
     }
 
     /**
@@ -120,34 +122,29 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //set validation rules
-        $rules = array(
-            'name' => 'required|max:150',
-            'start'	=>	'max:19',
-            'end'	=>	'max:19|after:start',
-            'metric_id'	=>	'integer|max:2000000000',
-            'p'	=>	'max:2'
-        );
+        $validator = Validator::make($request->all(), [
+            'oneLName' => 'required|max:255',
+            'twoLName' => 'required|max:255',
+            'email' => 'required|max:255',
+            'password' => 'required|max:255'
+        ]);
 
-        //validate
-        $validator = Validator::make(Input::all(), $rules);
-
-        if($validator->fails()) {
-            return Redirect::to('projects/' . $id . '/edit')->withErrors($validator)->withInput();
-        } else {
-            //add to database
-            $project = Project::find($id);
-            $project->name = Input::get('name');
-            $project->start = Input::get('start');
-            $project->end = Input::get('end');
-            $project->metric_id = Input::get('metric_id');
-            if(Input::get('p') == 'on') { $project->p = 1; } else { $project->p = 0; }
-            $project->save();
-
-            //redirect
-            Session::flash('message','Successfully updated task!');
-            return Redirect::to('projects');
+        if ($validator->fails()) {
+            return redirect('user')->withInput()->withErrors($validator);
         }
+
+        $user = User::find($id);
+        $user->hashtag = $request->hashtag;
+        $user->oneFName = $request->oneFName;
+        $user->oneLName = $request->oneLName;
+        $user->twoFName = $request->twoFName;
+        $user->twoLName = $request->twoLName;
+        $user->date = $request->date;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+
+        return redirect('user/' . $id);
     }
 
     /**
@@ -156,9 +153,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        $user = User::find($id);
+        //$user = User::find($id);
         $user->delete();
 
         //redirect

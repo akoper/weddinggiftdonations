@@ -29,3 +29,7 @@ Route::group(['middleware' => ['web']], function() {
     Route::resource('nonprofit','NonprofitController');
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
