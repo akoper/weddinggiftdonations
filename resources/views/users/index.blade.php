@@ -1,26 +1,44 @@
 @extends('template')
 
 @section('content')
-    <!-- Create Task Form... -->
 
-    <table class="table table-bordered widthAuto orgShowUser">
+    <table class="table table-bordered widthAuto ">
         <thead>
         <tr>
-            <th class="col-md-2">Last Name</th>
-            <th class="col-md-2">First Name</th>
-            <th class="col-md-2">Title</th>
+            <th class="col-md-2">Field</th>
+            <th class="col-md-2">Value</th>
         </tr>
         </thead>
         <tbody>
-        @foreach($users as $key => $value)
-            <tr>
-                <td>{{ $value->lname ?: "&nbsp;" }}</td>
-                <td>{{ $value->fname ?: "&nbsp;" }}</td>
-                <td>{{ $value->title ?: "&nbsp;" }}</td>
-            </tr>
-        @endforeach
+        <!--<tr>
+            <td>Hashtag</td>
+            <td>{{ $user->hashtag}}</td>
+        </tr>-->
+        <tr>
+            <td>Groom</td>
+            <td>{{ $user->oneFName . ' ' . $user->oneLName}} </td>
+        </tr>
+        <tr>
+            <td>Bride</td>
+            <td>{{ $user->twoFName . ' ' . $user->twoLName}} </td>
+        </tr>
+        <tr>
+            <td>Account User ID</td>
+            <td>{{ $user->email}}</td>
+        </tr>
         </tbody>
     </table>
 
+    <p>
+        <a href="{{ url('nonprofit/search') }}" class="button icon">Pick nonprofit</a>
+    </p>
+
+    <p>
+        <a href="{{ url('user/' . $user->id . '/edit') }}">Edit your couple's information</a>
+    </p>
+
+    <p>
+        <a href="{{ url('user/' . $user->id . '/delete') }}">Delete your couple's account</a>
+    </p>
 
 @endsection

@@ -14,12 +14,12 @@
 
     {{ Form::model($user, array('route' => array('user.update', $user->id), 'method'=>'PUT', 'class'=>'form-horizontal')) }}
 
-        <div class="form-group">
+        <!--<div class="form-group">
             {{ Form::label('hashtag', 'Wedding Social Media Hashtag', array('class' => 'col-sm-4 control-label')) }}
             <div class="col-sm-6">
             {{ Form::text('hashtag', null, array('class' => 'form-control')) }}
             </div>
-        </div>
+        </div> -->
 
         <div class="form-group">
             {{ Form::label('oneFName', 'First person, first name', array('class' => 'col-sm-4 control-label')) }}
@@ -50,13 +50,6 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('date', 'Date', array('class' => 'col-sm-4 control-label')) }}
-            <div class="col-sm-6">
-                {{ Form::text('date', null, array('class' => 'form-control')) }}
-            </div>
-        </div>
-
-        <div class="form-group">
             {{ Form::label('email', 'User ID (email address) *', array('class' => 'col-sm-4 control-label')) }}
             <div class="col-sm-6">
                 {{ Form::text('email', null, array('class' => 'form-control')) }}
@@ -74,7 +67,7 @@
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-6">
                 <button type="submit" class="btn button btn-default">
-                    <i class="fa fa-plus"></i> Create</button>
+                    <i class="fa fa-plus"></i> Update</button>
             </div>
         </div>
 
@@ -84,7 +77,7 @@
     * = Required field.
     </p>
     <p>
-    Password has to be between 6 and 20 characters.
+    Password has to be at least six characters
     </p>
 
 @stop

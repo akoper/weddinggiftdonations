@@ -21,11 +21,11 @@ class UserController extends Controller
     {
         $user = Auth::user();
 
-        return view('users.show')->with('user', $user)->withTitle('Couple');
+        return view('users.index')->with('user', $user)->withTitle('Couple');
     }
 
     /**
-     * Display a listing of the resource.
+     * Test to make sure routes works
      *
      * @return \Illuminate\Http\Response
      */
