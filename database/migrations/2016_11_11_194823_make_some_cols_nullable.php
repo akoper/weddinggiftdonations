@@ -19,7 +19,6 @@ class MakeSomeColsNullable extends Migration
             $table->string('oneLName')->nullable()->change();
             $table->string('twoLName')->nullable()->change();
             $table->string('twoFName')->nullable()->change();
-            $table->string('date')->nullable()->change();
         });
     }
 
