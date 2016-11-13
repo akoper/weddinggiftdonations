@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Nonprofit;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Validator;
 
 class NonprofitController extends Controller
 {
@@ -15,7 +17,9 @@ class NonprofitController extends Controller
      */
     public function index()
     {
-        //
+        $nonprofits = Nonprofit::all();
+
+        return view('nonprofits.index')->with('nonprofits', $nonprofits)->withTitle('Nonprofits');
     }
 
     /**
@@ -36,7 +40,24 @@ class NonprofitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:255',
+            'mission' => 'required|max:255',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('nonprofit')->withInput()->withErrors($validator);
+        }
+
+        $nonprofit = new Nonprofit;
+        $nonprofit->name = $request->name;
+        $nonprofit->mission = $request->mission;
+        $nonprofit->webSite = $request->webSite;
+        $nonprofit->save();
+
+        $id = $nonprofit->id;
+
+        return redirect('donation/create');
     }
 
     /**

@@ -10,7 +10,7 @@
 
     <hr style="margin-top: 100px;">
 
-    <form class="form-horizontal" role="form" method="POST" action="{{ url('create') }}">
+    <form class="form-horizontal" role="form" method="POST" action="{{ url('nonprofit') }}">
         {{ csrf_field() }}
 
         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -27,8 +27,22 @@
             </div>
         </div>
 
+        <div class="form-group{{ $errors->has('mission') ? ' has-error' : '' }}">
+            <label for="name" class="col-md-4 control-label">Mission</label>
+
+            <div class="col-md-6">
+                <input id="mission" type="text" class="form-control" name="mission" value="{{ old('mission') }}" required autofocus>
+
+                @if ($errors->has('mission'))
+                    <span class="help-block">
+                                        <strong>{{ $errors->first('mission') }}</strong>
+                                    </span>
+                @endif
+            </div>
+        </div>
+
         <div class="form-group{{ $errors->has('webSite') ? ' has-error' : '' }}">
-            <label for="name" class="col-md-4 control-label">webSite</label>
+            <label for="name" class="col-md-4 control-label">Web Site URL</label>
 
             <div class="col-md-6">
                 <input id="webSite" type="text" class="form-control" name="webSite" value="{{ old('webSite') }}" required autofocus>

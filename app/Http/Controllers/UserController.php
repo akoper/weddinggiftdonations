@@ -19,6 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
+        //always get user ID from authorized object
         $user = Auth::user();
 
         return view('users.index')->with('user', $user)->withTitle('Couple');
@@ -100,7 +101,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
 
-        return view('users.show')->with('user', $user)->withTitle('Couple');
+        return view('users.index')->with('user', $user)->withTitle('Couple');
     }
 
     /**
@@ -147,7 +148,7 @@ class UserController extends Controller
         $user->password = $request->password;
         $user->save();
 
-        return redirect('user/' . $id);
+        return redirect('user/');
     }
 
     /**

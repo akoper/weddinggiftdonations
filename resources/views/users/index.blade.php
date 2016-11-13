@@ -30,7 +30,7 @@
     </table>
 
     <p>
-        <a href="{{ url('nonprofit/search') }}" class="button icon">Pick nonprofit</a>
+        <a href="{{ url('nonprofit/create') }}" class="button icon">Pick nonprofit</a>
     </p>
 
     <p>

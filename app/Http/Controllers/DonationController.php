@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Donation;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Validator;
 
 class DonationController extends Controller
 {
@@ -36,7 +38,21 @@ class DonationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'amount' => 'required|max:255',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('donation')->withInput()->withErrors($validator);
+        }
+
+        $donation = new Donation();
+        $donation->amount = $request->amount;
+        $donation->save();
+
+        $id = $donation->id;
+
+        return redirect('nonprofit/' . $id);
     }
 
     /**
