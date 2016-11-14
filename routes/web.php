@@ -12,10 +12,21 @@
 */
 
 Route::get('/', function () {
-    return view('index')->withTitle('Welcome!');
+    if (Auth::guest()) {
+        return view('index')->withTitle('Welcome!');
+    } else {
+        //return View::make ('index');
+        return Redirect::to('user/');
+        //return view('index')->withTitle('Welcome!');
+    }
 });
 
 Route::get('user/search','UserController@search');
+
+
+Route::group(['middleware' => ['web']], function() {
+    Route::resource('couple','CoupleController');
+});
 
 Route::group(['middleware' => ['web']], function() {
     Route::resource('user','UserController');
@@ -28,7 +39,6 @@ Route::group(['middleware' => ['web']], function() {
 Route::group(['middleware' => ['web']], function() {
     Route::resource('nonprofit','NonprofitController');
 });
-
 
 Auth::routes();
 
